@@ -1,35 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SecondFragment">
+    android:background="@color/lightPrimaryColor">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:orientation="vertical"
+        android:layout_marginTop="32dp"
+        android:padding="16dp"
+        android:background="@color/lightPrimaryColor">
 
-        <Button
-            android:id="@+id/button_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/previous"
-            app:layout_constraintBottom_toTopOf="@id/textview_second"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivDetalleAnimal"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Large"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
-            android:id="@+id/textview_second"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvDetalleNombre"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_second" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textStyle="bold"
+            tools:text="Tigre de Bengala" />
+
+        <TextView
+            android:id="@+id/tvDetalleEspecie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:italic="true"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textColor="@color/primaryText"
+            tools:text="Panthera tigris tigris" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/accentColor"
+            app:cardCornerRadius="12dp"
+            app:strokeWidth="0dp">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:padding="12dp"
+                android:rowCount="2">
+
+                <TextView
+                    android:id="@+id/tvDetalleHabitat"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="1"
+                    android:text="🏠 Selva tropical"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetalleDieta"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="1"
+                    android:text="🥩 Carnívoro"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetallePeso"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/primaryText"
+                    tools:text="⚖️ 220-300 kg" />
+
+                <TextView
+                    android:id="@+id/tvDetalleVida"
+                    android:layout_width="0dp"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/primaryText"
+                    tools:text="⏳ 10-15 años" />
+            </GridLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Descripción"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDetalleDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/primaryText"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            tools:text="El tigre de Bengala es uno de los felinos más grandes..." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Datos Curiosos"
+            android:textSize="18sp"
+            android:textColor="@color/primaryText"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDetalleDatosCuriosos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/primaryText"
+            tools:text="• El rugido se escucha a 3km.\n• Son excelentes nadadores." />
+
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

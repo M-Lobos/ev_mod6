@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/animalCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/lightPrimaryColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivAnimal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivAnimal"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Tigre de Bengala" />
+
+        <TextView
+            android:id="@+id/tvEspecie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:italic="true"
+            android:textColor="@color/primaryText"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvNombre"
+            app:layout_constraintTop_toBottomOf="@id/tvNombre"
+            tools:text="Panthera tigris tigris" />
+
+        <TextView
+            android:id="@+id/tvHabitat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="@color/primaryText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvNombre"
+            app:layout_constraintTop_toBottomOf="@id/tvEspecie"
+            tools:text="Selva tropical" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDieta"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/darkPrimaryColor"
+            android:clickable="false"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tvNombre"
+            app:layout_constraintTop_toBottomOf="@id/tvHabitat"
+            tools:text="Carnívoro" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
