@@ -4,6 +4,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+//puntos de entrada para conssumo de datos
 interface ZooApi {
     // 1. Obtiene la lista completa (resumen)
     @GET("es/animales")

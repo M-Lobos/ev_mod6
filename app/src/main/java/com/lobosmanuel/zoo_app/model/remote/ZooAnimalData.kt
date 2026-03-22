@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+//Objeto (entidad) animales
 @Entity(tableName = "animales")
 data class ZooAnimalData(
     @PrimaryKey
