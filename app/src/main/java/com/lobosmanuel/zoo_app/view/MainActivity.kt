@@ -38,11 +38,11 @@ class MainActivity : AppCompatActivity() {
                 .setAnchorView(R.id.fab).show()
         }
 
-        /**
-         * PROBAR SI LLEGAN LOS DATOS DE FORMA "manual"
+
+        //PROBAR SI LLEGAN LOS DATOS DE FORMA "manual"
         // 1. Obtener la instancia de la base de datos y el DAO
         val database = com.lobosmanuel.zoo_app.model.local.ZooDataBase.getDataBase((this))
-        val zooDao = database.zooDao()
+        val zooDao = database.getZooDao()
 
         // 2. Crear instancia del repositorio
         val repository = ZooRepository(zooDao)
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repository.fetchDataFromInternetCoroutines()
         }
-        */
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
