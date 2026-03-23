@@ -38,17 +38,20 @@ class MainActivity : AppCompatActivity() {
                 .setAnchorView(R.id.fab).show()
         }
 
-        // 1. Obtenemos la instancia de la base de datos y el DAO
+        /**
+         * PROBAR SI LLEGAN LOS DATOS DE FORMA "manual"
+        // 1. Obtener la instancia de la base de datos y el DAO
         val database = com.lobosmanuel.zoo_app.model.local.ZooDataBase.getDataBase((this))
         val zooDao = database.zooDao()
 
-// 2. Creamos la instancia del repositorio (esto es lo que te faltaba)
+        // 2. Crear instancia del repositorio
         val repository = ZooRepository(zooDao)
 
-// 3. Ahora sí, llamamos a la función DESDE la instancia 'repository' (en minúscula)
+        // 3. LLamar función DESDE la instancia 'repository' (en punto 2)
         lifecycleScope.launch {
             repository.fetchDataFromInternetCoroutines()
         }
+        */
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

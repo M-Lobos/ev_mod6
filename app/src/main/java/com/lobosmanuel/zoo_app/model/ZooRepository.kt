@@ -20,6 +20,7 @@ class ZooRepository(private val zooDao: ZooDao) {
 
             when(response.code()) {
                 in 200..299 -> response.body()?.let { lista ->
+                    Log.d("REPO", "¡Éxito! Llegaron ${lista.size} animales")
                     zooDao.insertAllAnimals(lista)
                     dataFromInternet.postValue(lista)
                 }

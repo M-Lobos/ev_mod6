@@ -11,7 +11,7 @@ import com.lobosmanuel.zoo_app.model.remote.ZooAnimalData
 @TypeConverters(TypeConverter::class) //Traductor de typo para room
 abstract class ZooDataBase: RoomDatabase() {
     //DAO
-    abstract fun zooDao(): ZooDao
+    abstract fun getZooDao(): ZooDao
 
     companion object{
         @Volatile
