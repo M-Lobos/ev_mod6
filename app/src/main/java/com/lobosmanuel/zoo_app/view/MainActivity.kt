@@ -9,8 +9,11 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.lifecycleScope
 import com.lobosmanuel.zoo_app.R
 import com.lobosmanuel.zoo_app.databinding.ActivityMainBinding
+import com.lobosmanuel.zoo_app.model.ZooRepository
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +36,18 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
                 .setAnchorView(R.id.fab).show()
+        }
+
+        // 1. Obtenemos la instancia de la base de datos y el DAO
+        val database = com.lobosmanuel.zoo_app.model.local.ZooDataBase.getDataBase((this))
+        val zooDao = database.zooDao()
+
+// 2. Creamos la instancia del repositorio (esto es lo que te faltaba)
+        val repository = ZooRepository(zooDao)
+
+// 3. Ahora sí, llamamos a la función DESDE la instancia 'repository' (en minúscula)
+        lifecycleScope.launch {
+            repository.fetchDataFromInternetCoroutines()
         }
     }
 

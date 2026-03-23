@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 //Gestiona consumo de API para JSON -> GSON
 class RetrofitClient {
     companion object{
-        private const val BASE_URL = "https://zoo-api.vercel.app/es/animales"
+        private const val BASE_URL = "https://zoo-api.vercel.app/"
 
         fun getRetrofit(): ZooApi{
             val retrofit = Retrofit.Builder()

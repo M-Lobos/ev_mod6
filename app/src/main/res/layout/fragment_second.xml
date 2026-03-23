@@ -36,7 +36,7 @@
             android:id="@+id/tvDetalleEspecie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:italic="true"
+            android:textStyle="italic"
             android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
             android:textColor="@color/primaryText"
             tools:text="Panthera tigris tigris" />

@@ -30,7 +30,7 @@ interface ZooDao {
 
     //TRAE ANIMAL POR ID
     @Query ("SELECT * FROM animales WHERE id = :id")
-    fun getAnimalById(id:String): LiveData<ZooAnimalData>
+    fun getAnimalById(id:Int): LiveData<ZooAnimalData>
 
     //ELIMINAR TERRENOS
     @Query("DELETE FROM animales")

@@ -51,7 +51,7 @@ class ZooRepository(private val zooDao: ZooDao) {
     }
 
 
-    fun getAnimalById(id: String): LiveData<ZooAnimalData>{
+    fun getAnimalById(id: Int): LiveData<ZooAnimalData>{
         return zooDao.getAnimalById(id)
     }
 
