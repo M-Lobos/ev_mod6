@@ -1,11 +1,14 @@
 package com.lobosmanuel.zoo_app.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -52,9 +55,28 @@ class SecondFragment : Fragment() {
                     viewModel.getAnimalDetail(animalId).observe(viewLifecycleOwner) { animal ->
                         animal?.let {
                             Log.d("DETALLE", "Animal: ${it.nombre}, Habitat: ${it.habitat}, Desc: ${it.descripcion}")
-                            // ... tu código de binding ...
+
+
                         }
                     }
+
+                    binding.fabMail.setOnClickListener {
+                        val intent = Intent(Intent.ACTION_SENDTO).apply {
+                            data = Uri.parse("mailto:")
+                            putExtra(Intent.EXTRA_EMAIL, arrayOf("info@tuzoologico.com"))
+//                            putExtra(Intent.EXTRA_SUBJECT, "Información sobre: - ${it.nombre}")
+//                            putExtra(Intent.EXTRA_TEXT, "Solicito más información sobre el o los " +
+//                                    "Zoológicos dentro de Chile que tienen un ${it.nombre}. Me gustaría realizar una r" +
+//                                    "eserva para visitarlo junto a mi familia.")
+                        }
+
+                        try {
+                            startActivity(Intent.createChooser(intent, "Enviar correo..."))
+                        } catch (e: Exception) {
+                            Toast.makeText(context, "No se encontró app de correo", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
 
                     //tarjeta chica | habitat dieta peso esperanza vida
                     binding.tvDetalleHabitat.text = it.habitat
@@ -81,8 +103,8 @@ class SecondFragment : Fragment() {
                         .centerCrop()
                         .into(binding.ivDetalleAnimal)
 
-                    // Configurar el FAB para el correo (lo vemos después)
-                    //setupFab(it.nombre)
+
+
                 }
             }
         }

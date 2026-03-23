@@ -28,18 +28,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:visibility="visible"
-        app:backgroundTint="@color/accentColor"
-        app:tint="@color/secondaryText"
-        app:elevation="8dp"
-        app:fabSize="normal"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
 
     <include
         layout="@layout/content_main"
