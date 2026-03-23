@@ -60,14 +60,14 @@
                     android:id="@+id/tvDetalleHabitat"
                     android:layout_width="0dp"
                     android:layout_columnWeight="1"
-                    android:text="🏠 Selva tropical"
+                    android:text=" Selva tropical"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvDetalleDieta"
                     android:layout_width="0dp"
                     android:layout_columnWeight="1"
-                    android:text="🥩 Carnívoro"
+                    android:text=" Carnívoro"
                     android:textStyle="bold" />
 
                 <TextView
@@ -76,7 +76,7 @@
                     android:layout_columnWeight="1"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/primaryText"
-                    tools:text="⚖️ 220-300 kg" />
+                    tools:text=" 220-300 kg" />
 
                 <TextView
                     android:id="@+id/tvDetalleVida"
@@ -84,7 +84,7 @@
                     android:layout_columnWeight="1"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/primaryText"
-                    tools:text="⏳ 10-15 años" />
+                    tools:text=" 10-15 años" />
             </GridLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -111,8 +111,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="Datos Curiosos"
-            android:textSize="18sp"
             android:textColor="@color/primaryText"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -122,6 +122,27 @@
             android:layout_marginTop="12dp"
             android:textColor="@color/primaryText"
             tools:text="• El rugido se escucha a 3km.\n• Son excelentes nadadores." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Convervación"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEstadoDeConservacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/primaryText"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            tools:text="El tigre de Bengala es uno de los felinos más grandes..." />
+
+
+
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

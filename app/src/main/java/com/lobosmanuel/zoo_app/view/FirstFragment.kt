@@ -54,27 +54,44 @@ class FirstFragment : Fragment() {
         })
 
         //Seleccion de un animal
+//        adapter.selectedAnimal.observe(viewLifecycleOwner) { selected ->
+//
+//            selected?.let {
+//                //bundle para pasar datos al segundo fragmento
+//                val bundle = Bundle().apply {
+//                    putInt("id", it.id)
+//                    putString("imagen", it.imagen)
+//                }
+//
+//                //crear instancia del fragmento
+//                val secondFragment = SecondFragment()
+//                secondFragment.arguments = bundle
+//
+//
+//                //reemplazar el fragmento
+//                parentFragmentManager.beginTransaction()
+//                    .replace(R.id.nav_host_fragment_content_main, secondFragment)
+//                    .addToBackStack(null)
+//                    .commit()
+//            }
+//        }
+        // Selección de un animal en FirstFragment.kt
         adapter.selectedAnimal.observe(viewLifecycleOwner) { selected ->
-
             selected?.let {
-                //bundle para pasar datos al segundo fragmento
+                // 1. Creamos el Bundle con los datos
                 val bundle = Bundle().apply {
                     putInt("id", it.id)
                     putString("imagen", it.imagen)
                 }
 
-                //crear instancia del fragmento
-                val secondFragment = SecondFragment()
-                secondFragment.arguments = bundle
-
-
-                //reemplazar el fragmento
-                parentFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_content_main, secondFragment)
-                    .addToBackStack(null)
-                    .commit()
+                // 2. NAVEGAMOS usando el ID de la flecha de tu nav_graph
+                findNavController().navigate(
+                    R.id.action_FirstFragment_to_SecondFragment, // <-- Asegúrate que este ID sea el de tu flecha
+                    bundle
+                )
             }
         }
+
 
     }
 

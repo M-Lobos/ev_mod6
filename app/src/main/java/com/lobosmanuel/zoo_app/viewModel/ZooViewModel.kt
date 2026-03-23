@@ -38,10 +38,23 @@ class ZooViewModel (application: Application): AndroidViewModel(application) {
 
         liveDataFromInternet = repository.dataFromInternet  //Asigna el LiveData que contiene datos de internet
 
+
     }
 
-    // Variable MutableLiveData para guardar el terreno de Marte seleccionado
+    // Variable MutableLiveData para guardar el animal  seleccionado
     private var selectZooAnimal: MutableLiveData<ZooAnimalData> = MutableLiveData()
+
+    // Variable MutableLiveData para detalla del animal seleccionado
+    val animalDetail = MutableLiveData<ZooAnimalData>()
+
+    fun getAnimalDetail(id: Int): LiveData<ZooAnimalData> {
+        // 1. Lanzamos la descarga en segundo plano para llenar los campos null
+        viewModelScope.launch {
+            repository.fetchDetailFromInternet(id)
+        }
+        // 2. Retornamos el LiveData de Room (que se actualizará solo cuando la descarga termine)
+        return repository.getAnimalById(id)
+    }
 
     //Devuelve elemento seleccionado como LiveData (read only)
     fun selectedItem() : LiveData<ZooAnimalData> = selectZooAnimal

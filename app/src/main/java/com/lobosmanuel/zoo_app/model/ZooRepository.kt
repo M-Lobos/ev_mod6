@@ -45,7 +45,7 @@ class ZooRepository(private val zooDao: ZooDao) {
             if (response.isSuccessful) {
                 response.body()?.let { animal ->
                     // actualizar el animal en Room
-                    // zooDao.insertAnimal(animal)
+                    zooDao.insertAnimal(animal)
                     detailFromInternet.postValue(animal)
                 }
             }
@@ -53,7 +53,6 @@ class ZooRepository(private val zooDao: ZooDao) {
             Log.e("REPO", "Error en detalle: ${t.message}")
         }
     }
-
 
     fun getAnimalById(id: Int): LiveData<ZooAnimalData>{
         return zooDao.getAnimalById(id)
