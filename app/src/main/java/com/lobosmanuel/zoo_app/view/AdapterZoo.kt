@@ -24,13 +24,13 @@ class AdapterZoo : RecyclerView.Adapter<AdapterZoo.ZooViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ZooViewHolder {
-        // Quitamos el TODO y retornamos el binding correctamente
+
         val binding = AnimalItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ZooViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ZooViewHolder, position: Int) {
-        // Quitamos el TODO
+
         val animal = listZooItems[position]
         holder.bind(animal)
     }
@@ -47,6 +47,12 @@ class AdapterZoo : RecyclerView.Adapter<AdapterZoo.ZooViewHolder>() {
                 .load(zoo.imagen)
                 .centerCrop()
                 .into(binding.ivAnimal)
+
+            //agrega textos de atributos según tu POJO a la tarjeta
+            binding.tvNombre.text = zoo.nombre
+            binding.tvEspecie.text = zoo.especie
+            binding.tvHabitat.text = zoo.habitat
+            binding.chipDieta.text = zoo.dieta
 
             // Configurar el click en la vista entera
             itemView.setOnClickListener(this)
