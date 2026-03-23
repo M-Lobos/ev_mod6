@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.lobosmanuel.zoo_app.model.remote.ZooAnimalData
 
 @Database(entities = [ZooAnimalData::class], version = 1 )
+@TypeConverters(TypeConverter::class) //Traductor de typo para room
 abstract class ZooDataBase: RoomDatabase() {
     //DAO
     abstract fun zooDao(): ZooDao
