@@ -110,6 +110,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:text="Comidas Favoritas"
+            android:textColor="@color/primaryText"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDetalleComidas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/primaryText"
+            tools:text="• El rugido se escucha a 3km.\n• Son excelentes nadadores." />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Predadores Naturales"
+            android:textColor="@color/primaryText"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvPredadoresNaturales"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/primaryText"
+            tools:text="• El rugido se escucha a 3km.\n• Son excelentes nadadores." />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:text="Datos Curiosos"
             android:textColor="@color/primaryText"
             android:textSize="18sp"
@@ -140,6 +175,9 @@
             android:textColor="@color/primaryText"
             android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
             tools:text="El tigre de Bengala es uno de los felinos más grandes..." />
+
+
+
 
 
 

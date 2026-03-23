@@ -64,6 +64,10 @@ class SecondFragment : Fragment() {
 
                     //Descripcion
                     binding.tvDetalleDescripcion.text = it.descripcion
+                    //Comdias Favoritas
+                    binding.tvDetalleComidas.text = it.comidasFavoritas.toString()
+                    //predadoresNaturales
+                    binding.tvPredadoresNaturales.text = it.predadoresNaturales.toString()
                     //Dato curiosos
                     binding.tvDetalleDatosCuriosos.text = it.datosCuriosos.toString()
                     //Conservación
