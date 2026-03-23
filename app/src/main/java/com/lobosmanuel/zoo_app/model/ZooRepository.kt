@@ -32,6 +32,25 @@ class ZooRepository(private val zooDao: ZooDao) {
         }
     }
 
+    // Para el detalle de un animal específico
+    val detailFromInternet = MutableLiveData<ZooAnimalData>()
+
+    suspend fun fetchDetailFromInternet(id: Int) {
+        try {
+            val response = retrofitClient.fetchAnimalDetail(id) // segundo endpoint
+            if (response.isSuccessful) {
+                response.body()?.let { animal ->
+                    // actualizar el animal en Room
+                    // zooDao.insertAnimal(animal)
+                    detailFromInternet.postValue(animal)
+                }
+            }
+        } catch (t: Throwable) {
+            Log.e("REPO", "Error en detalle: ${t.message}")
+        }
+    }
+
+
     fun getAnimalById(id: String): LiveData<ZooAnimalData>{
         return zooDao.getAnimalById(id)
     }
