@@ -60,22 +60,7 @@ class SecondFragment : Fragment() {
                         }
                     }
 
-                    binding.fabMail.setOnClickListener {
-                        val intent = Intent(Intent.ACTION_SENDTO).apply {
-                            data = Uri.parse("mailto:")
-                            putExtra(Intent.EXTRA_EMAIL, arrayOf("info@tuzoologico.com"))
-//                            putExtra(Intent.EXTRA_SUBJECT, "Información sobre: - ${it.nombre}")
-//                            putExtra(Intent.EXTRA_TEXT, "Solicito más información sobre el o los " +
-//                                    "Zoológicos dentro de Chile que tienen un ${it.nombre}. Me gustaría realizar una r" +
-//                                    "eserva para visitarlo junto a mi familia.")
-                        }
-
-                        try {
-                            startActivity(Intent.createChooser(intent, "Enviar correo..."))
-                        } catch (e: Exception) {
-                            Toast.makeText(context, "No se encontró app de correo", Toast.LENGTH_SHORT).show()
-                        }
-                    }
+                    setupFab(it.nombre)
 
 
                     //tarjeta chica | habitat dieta peso esperanza vida
@@ -96,25 +81,35 @@ class SecondFragment : Fragment() {
                     binding.tvEstadoDeConservacion.text = it.estadoDeConservacion
 
 
-
-                    // Cargamos la imagen con Glide
+                    // Cargar la imagen con Glide
                     Glide.with(this)
                         .load(it.imagen)
                         .centerCrop()
                         .into(binding.ivDetalleAnimal)
-
-
-
                 }
             }
         }
     }
 
-//    private fun setupFab(name: String) {
-//        binding.fabMail.setOnClickListener {
-//            // Aquí irá el Intent del correo
-//        }
-//    }
+    private fun setupFab(nombre: String) {
+        binding.fabMail.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SENDTO).apply {
+                data = Uri.parse("mailto:")
+                putExtra(Intent.EXTRA_EMAIL, arrayOf("info@tuzoologico.com"))
+                putExtra(Intent.EXTRA_SUBJECT, "Información sobre: $nombre")
+                putExtra(Intent.EXTRA_TEXT, "Solicito más información sobre el o " +
+                        "los Zoológicos dentro de Chile que tienen un $nombre. Me gustaría realizar " +
+                        "una reserva para visitarlo junto a mi familia.")
+            }
+
+            try {
+                startActivity(Intent.createChooser(intent, "Enviar correo..."))
+            } catch (e: Exception) {
+                Toast.makeText(context, "No se encontró app de correo", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
