@@ -60,8 +60,8 @@ class SecondFragment : Fragment() {
                         }
                     }
 
+                    //función que define y acciona el fab para mandar email, recibe paramétro string nombre para config.
                     setupFab(it.nombre)
-
 
                     //tarjeta chica | habitat dieta peso esperanza vida
                     binding.tvDetalleHabitat.text = it.habitat
@@ -79,7 +79,6 @@ class SecondFragment : Fragment() {
                     binding.tvDetalleDatosCuriosos.text = it.datosCuriosos.toString()
                     //Conservación
                     binding.tvEstadoDeConservacion.text = it.estadoDeConservacion
-
 
                     // Cargar la imagen con Glide
                     Glide.with(this)
@@ -109,7 +108,6 @@ class SecondFragment : Fragment() {
             }
         }
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()
